@@ -6,7 +6,7 @@ import { type ReactNode } from "react";
 import type { Route } from "next";
 import "./styles.css";
 
-export const ActiveLink = <T extends string>({
+export function ActiveLink<T extends string>({
 	href,
 	children,
 	activeClassName,
@@ -16,7 +16,7 @@ export const ActiveLink = <T extends string>({
 	children: ReactNode;
 	activeClassName: string;
 	className: string;
-}) => {
+}) {
 	const pathname = usePathname();
 	const isActive =
 		pathname === href || (pathname !== "/" && pathname.slice(1).startsWith(href.toString()));
@@ -30,4 +30,4 @@ export const ActiveLink = <T extends string>({
 			{children}
 		</Link>
 	);
-};
+}
