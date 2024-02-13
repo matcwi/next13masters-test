@@ -1,6 +1,5 @@
 "use client";
 
-import { type Route } from "next";
 import { ActiveLink } from "@/ui/atoms/ActiveLink";
 
 export function Pagination({ totalPages }: { totalPages: number }) {
@@ -13,7 +12,7 @@ export function Pagination({ totalPages }: { totalPages: number }) {
 					className=""
 					key={pageNumber}
 					aria-label={`pagination - ${pageNumber}`}
-					href={`/products/${pageNumber}` as Route}
+					href={`/products/${pageNumber}`}
 					activeClassName="active"
 				>
 					{pageNumber}
