@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import clsx from "clsx";
 import { ActiveLink } from "@/ui/atoms/ActiveLink";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -8,6 +9,8 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
 	title: "Products",
 };
+
+const linkClassName = clsx(`text-blue-400 hover:text-blue-600`);
 
 export default function RootLayout({
 	children,
@@ -20,10 +23,14 @@ export default function RootLayout({
 				<nav>
 					<ul className="flex justify-center space-x-4">
 						<li>
-							<ActiveLink href={"/"}>HomePage</ActiveLink>
+							<ActiveLink className={linkClassName} activeClassName="active" href={"/"}>
+								Home
+							</ActiveLink>
 						</li>
 						<li>
-							<ActiveLink href={"/products"}>Products</ActiveLink>
+							<ActiveLink className={linkClassName} activeClassName="active" href={"/products"}>
+								All
+							</ActiveLink>
 						</li>
 					</ul>
 				</nav>

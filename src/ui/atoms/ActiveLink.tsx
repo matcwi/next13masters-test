@@ -4,22 +4,28 @@ import clsx from "clsx";
 import { usePathname } from "next/navigation";
 import { type ReactNode } from "react";
 import type { Route } from "next";
+import "./styles.css";
 
 export const ActiveLink = <T extends string>({
 	href,
 	children,
+	activeClassName,
+	className,
 }: {
 	href: Route<T> | URL;
 	children: ReactNode;
+	activeClassName: string;
+	className: string;
 }) => {
 	const pathname = usePathname();
-	const isActive = href === pathname;
+	const isActive =
+		pathname === href || (pathname !== "/" && pathname.slice(1).startsWith(href.toString()));
+
 	return (
 		<Link
+			aria-current={isActive}
 			href={href}
-			className={clsx(`text-blue-400 hover:text-blue-600`, {
-				underline: isActive,
-			})}
+			className={clsx(className, isActive && activeClassName)}
 		>
 			{children}
 		</Link>
