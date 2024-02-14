@@ -7,7 +7,7 @@ type ProductListItemProps = {
 };
 
 export const ProductItem = ({ product }: ProductListItemProps) => {
-	const { name, category, price } = product;
+	const { name, category, price, description } = product;
 	return (
 		<article className="mx-w-xs">
 			<ProductCoverImage {...product.coverImage} />
@@ -19,6 +19,7 @@ export const ProductItem = ({ product }: ProductListItemProps) => {
 						{category}
 					</p>
 				</div>
+				<p>{description}</p>
 				<p className="text-sm font-medium text-gray-900">
 					<span className="sr-only">Cena:</span>
 					{formatMoney(price / 100)}
