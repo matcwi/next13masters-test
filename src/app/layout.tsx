@@ -23,12 +23,17 @@ export default function RootLayout({
 				<nav>
 					<ul className="flex justify-center space-x-4">
 						<li>
-							<ActiveLink className={linkClassName} activeClassName="active" href={"/"}>
+							<ActiveLink exact className={linkClassName} activeClassName="active" href={"/"}>
 								Home
 							</ActiveLink>
 						</li>
 						<li>
-							<ActiveLink className={linkClassName} activeClassName="active" href={"/products"}>
+							<ActiveLink
+								exact={false}
+								className={linkClassName}
+								activeClassName="active"
+								href={"/products"}
+							>
 								All
 							</ActiveLink>
 						</li>

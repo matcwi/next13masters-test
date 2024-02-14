@@ -11,19 +11,20 @@ export function ActiveLink<T extends string>({
 	children,
 	activeClassName,
 	className,
+	exact,
 }: {
 	href: Route<T> | URL;
 	children: ReactNode;
 	activeClassName: string;
 	className: string;
+	exact: boolean;
 }) {
 	const pathname = usePathname();
-	const isActive =
-		pathname === href || (pathname !== "/" && pathname.slice(1).startsWith(href.toString()));
+	const isActive = exact ? pathname === href : pathname.startsWith(href as string);
 
 	return (
 		<Link
-			aria-current={isActive}
+			aria-current={isActive ? "page" : undefined}
 			href={href}
 			className={clsx(className, isActive && activeClassName)}
 		>

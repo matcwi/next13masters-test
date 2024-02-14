@@ -15,6 +15,7 @@ export function Pagination({ totalPages }: { totalPages: number }) {
 					aria-label={`pagination - ${pageNumber}`}
 					href={`/products/${pageNumber}` as Route}
 					activeClassName="active"
+					exact
 				>
 					{pageNumber}
 				</ActiveLink>
