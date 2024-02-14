@@ -16,10 +16,10 @@ export const generateMetadata = async ({ params }: { params: { productId: string
 	const product = await getProductById(params.productId);
 	return {
 		title: `${product.name}`,
-		decription: product.description,
+		description: product.description,
 		openGraph: {
 			title: `${product.name}`,
-			decription: product.description,
+			description: product.description,
 			//gdy wyslemy link to ten obrazek bedzie widoczny np na facebooku
 			images: [product.coverImage.src],
 		},
