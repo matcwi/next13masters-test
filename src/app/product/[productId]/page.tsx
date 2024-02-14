@@ -15,8 +15,6 @@ export const generateStaticParams = async () => {
 		.slice(0, 2);
 };
 
-//
-
 export const generateMetadata = async ({ params }: { params: { productId: string } }) => {
 	const product = await getProductById(params.productId);
 	return {

@@ -1,5 +1,5 @@
 import { getProductsList } from "@/api/products";
-import { Pagination } from "@/ui/molecules/Pagination";
+
 import { ProductList } from "@/ui/organisms/ProductList";
 
 export const generateStaticParams = () => {
@@ -18,7 +18,6 @@ export default async function CategoryProductPage({
 	return (
 		<div>
 			<ProductList products={products} />
-			<Pagination totalPages={5} />
 		</div>
 	);
 }
