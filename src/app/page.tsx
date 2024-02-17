@@ -1,3 +1,11 @@
-export default function HomePage() {
-	return <div>Home</div>;
+import { getProductsList } from "@/api/products";
+import { ProductList } from "@/ui/organisms/ProductList";
+
+export default async function HomePage() {
+	const products = await getProductsList();
+	return (
+		<>
+			<ProductList products={products} />
+		</>
+	);
 }
