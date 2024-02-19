@@ -4,6 +4,15 @@ const nextConfig = {
 	experimental: {
 		mdxRs: true,
 	},
+	redirects: async () => {
+		return [
+			{
+				source: "/categories/t-shirts",
+				destination: "categories/t-shirts/1",
+				permanent: false,
+			},
+		];
+	},
 };
 
 const withMDX = require("@next/mdx")();
