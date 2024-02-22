@@ -17,7 +17,7 @@ export default async function CategoryProductPage({
 
 	return (
 		<div>
-			<ProductList products={products} />
+			<ProductList products={products.data} />
 		</div>
 	);
 }
