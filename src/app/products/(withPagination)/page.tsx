@@ -6,7 +6,7 @@ export default async function ProductsPage() {
 	const products = await getProductsList();
 	return (
 		<>
-			<ProductList products={products} />
+			<ProductList products={products.data} />
 		</>
 	);
 }

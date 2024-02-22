@@ -5,7 +5,7 @@ import { ProductItem } from "@/ui/molecules/ProductItem";
 export const generateStaticParams = async () => {
 	const products = await getProductsList();
 
-	return products
+	return products.data
 		.map((product) => ({
 			productId: product.id,
 		}))
@@ -21,7 +21,7 @@ export const generateMetadata = async ({ params }: { params: { productId: string
 			title: `${product.name}`,
 			description: product.description,
 			//gdy wyslemy link to ten obrazek bedzie widoczny np na facebooku
-			images: [product.coverImage.src],
+			images: [product.images[0].url],
 		},
 	};
 };

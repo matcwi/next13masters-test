@@ -1,12 +1,12 @@
-import { type ProductItemType } from "@/ui/types";
+import { type ProductListItemFragment } from "@/gql/graphql";
 import { formatMoney } from "@/utils";
 
 type ProductListItemDescriptionProps = {
-	product: ProductItemType;
+	product: ProductListItemFragment;
 };
 
 export const ProductListItemDescription = ({
-	product: { name, category, price },
+	product: { name, categories, price },
 }: ProductListItemDescriptionProps) => {
 	return (
 		<div className="mt-2 flex justify-between">
@@ -14,7 +14,7 @@ export const ProductListItemDescription = ({
 				<p>{name}</p>
 				<p className="text-sm text-gray-500">
 					<span className="sr-only">Kategoria:</span>
-					{category}
+					{categories[0].name}
 				</p>
 			</div>
 			<p className="text-sm font-medium text-gray-900">

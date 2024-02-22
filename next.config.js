@@ -4,6 +4,9 @@ const nextConfig = {
 	experimental: {
 		mdxRs: true,
 	},
+	images: {
+		domains: ["static-ourstore.hyperfunctor.com"],
+	},
 	redirects: async () => {
 		return [
 			{

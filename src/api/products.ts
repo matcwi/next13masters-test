@@ -23,19 +23,7 @@ type ProductResponseItem = {
 export const getProductsList = async (_offset = 0) => {
 	const gqlResponse = await executeGraphql({ query: ProductsGetListDocument });
 
-	return gqlResponse.products.data.map((p) => {
-		return {
-			id: p.id,
-			category: "",
-			name: p.name,
-			price: p.price,
-			description: p.description,
-			coverImage: {
-				src: p.images[0].url,
-				alt: p.name,
-			},
-		};
-	});
+	return gqlResponse.products;
 };
 
 export const getProductsByCategorySlug = async (slug: string) => {
@@ -49,19 +37,7 @@ export const getProductsByCategorySlug = async (slug: string) => {
 	if (!products) {
 		throw notFound();
 	}
-	return products.map((p) => {
-		return {
-			id: p.id,
-			category: "",
-			name: p.name,
-			price: p.price,
-			description: p.description,
-			coverImage: {
-				src: p.images[0].url,
-				alt: p.name,
-			},
-		};
-	});
+	return products;
 };
 
 export const getProductById = async (id: ProductResponseItem["id"]) => {
@@ -78,15 +54,5 @@ export const getProductById = async (id: ProductResponseItem["id"]) => {
 		throw notFound();
 	}
 
-	return {
-		id: product.id,
-		category: product.categories[0].name,
-		name: product.name,
-		price: product.price,
-		description: product.description,
-		coverImage: {
-			src: product.images[0].url,
-			alt: product.name,
-		},
-	};
+	return product;
 };

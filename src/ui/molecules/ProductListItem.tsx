@@ -1,10 +1,11 @@
 import Link from "next/link";
 import { ProductCoverImage } from "@/ui/atoms/ProductCoverImage";
 import { ProductListItemDescription } from "@/ui/atoms/ProductListItemDescription";
-import { type ProductItemType } from "@/ui/types";
+
+import { type ProductListItemFragment } from "@/gql/graphql";
 
 type ProductListItemProps = {
-	product: ProductItemType;
+	product: ProductListItemFragment;
 };
 
 export const ProductListItem = ({ product }: ProductListItemProps) => {
@@ -12,7 +13,7 @@ export const ProductListItem = ({ product }: ProductListItemProps) => {
 		<li>
 			<Link href={`/product/${product.id}`}>
 				<article>
-					<ProductCoverImage {...product.coverImage} />
+					{product.images[0] && <ProductCoverImage {...product.images[0]} />}
 					<ProductListItemDescription product={product} />
 				</article>
 			</Link>

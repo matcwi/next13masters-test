@@ -5,7 +5,7 @@ export default async function HomePage() {
 	const products = await getProductsList();
 	return (
 		<>
-			<ProductList products={products} />
+			<ProductList products={products.data} />
 		</>
 	);
 }
