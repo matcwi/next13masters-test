@@ -3,6 +3,7 @@ import { executeGraphql } from "@/api/graphql/lib";
 import {
 	ProductGetByIdDocument,
 	ProductsGetByCategorySlugDocument,
+	ProductsGetBySearchDocument,
 	ProductsGetListDocument,
 	SuggestedProductsGetListDocument,
 } from "@/gql/graphql";
@@ -68,4 +69,13 @@ export const getProductById = async (id: ProductResponseItem["id"]) => {
 	}
 
 	return product;
+};
+
+export const getProductsBySearchValue = async (searchValue: string) => {
+	const graphqlResponse = await executeGraphql({
+		query: ProductsGetBySearchDocument,
+		variables: { input: searchValue },
+	});
+
+	return graphqlResponse.products.data;
 };

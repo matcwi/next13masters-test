@@ -1,0 +1,8 @@
+query ProductsGetBySearch($input: String!) {
+	products(search: $input) {
+		data {
+			...ProductListItem
+		}
+		...ProductsGetCount
+	}
+}

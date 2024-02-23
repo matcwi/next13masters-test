@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import clsx from "clsx";
 import { ActiveLink } from "@/ui/atoms/ActiveLink";
+import { Search } from "@/ui/atoms/Search";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,43 +22,48 @@ export default function RootLayout({
 		<html lang="pl">
 			<body className={inter.className}>
 				<nav>
-					<ul className="flex justify-center space-x-4">
-						<li>
-							<ActiveLink exact className={linkClassName} activeClassName="active" href={"/"}>
-								Home
-							</ActiveLink>
-						</li>
-						<li>
-							<ActiveLink
-								exact={false}
-								className={linkClassName}
-								activeClassName="active"
-								href={"/products"}
-							>
-								All
-							</ActiveLink>
-						</li>
-						<li>
-							<ActiveLink
-								exact={false}
-								className={linkClassName}
-								activeClassName="active"
-								href={"/categories"}
-							>
-								Categories
-							</ActiveLink>
-						</li>
-						<li>
-							<ActiveLink
-								exact={false}
-								className={linkClassName}
-								activeClassName="active"
-								href={"/collections"}
-							>
-								Collections
-							</ActiveLink>
-						</li>
-					</ul>
+					<div className="flex justify-between p-12">
+						<ul className="flex justify-center space-x-4">
+							<li>
+								<ActiveLink exact className={linkClassName} activeClassName="active" href={"/"}>
+									Home
+								</ActiveLink>
+							</li>
+							<li>
+								<ActiveLink
+									exact={false}
+									className={linkClassName}
+									activeClassName="active"
+									href={"/products"}
+								>
+									All
+								</ActiveLink>
+							</li>
+							<li>
+								<ActiveLink
+									exact={false}
+									className={linkClassName}
+									activeClassName="active"
+									href={"/categories"}
+								>
+									Categories
+								</ActiveLink>
+							</li>
+							<li>
+								<ActiveLink
+									exact={false}
+									className={linkClassName}
+									activeClassName="active"
+									href={"/collections"}
+								>
+									Collections
+								</ActiveLink>
+							</li>
+						</ul>
+						<div>
+							<Search />
+						</div>
+					</div>
 				</nav>
 				<section className="mx-auto max-w-md p-12 sm:max-w-2xl sm:py-16 md:max-w-4xl lg:max-w-7xl">
 					{children}

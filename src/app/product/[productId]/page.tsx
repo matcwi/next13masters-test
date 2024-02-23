@@ -1,6 +1,7 @@
 import { getProductById, getProductsList } from "@/api/products";
 
 import { ProductItem } from "@/ui/molecules/ProductItem";
+import { SuggestedProductsList } from "@/ui/organisms/SuggestedProducts";
 
 export const generateStaticParams = async () => {
 	const products = await getProductsList();
@@ -31,6 +32,7 @@ export default async function SingleProductPage({ params }: { params: { productI
 	return (
 		<>
 			<ProductItem product={product} />
+			<SuggestedProductsList />
 		</>
 	);
 }
