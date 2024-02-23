@@ -10,7 +10,7 @@ export default async function CategoriesPage() {
 			<ul>
 				{categories.map((category) => (
 					<li key={category.name}>
-						<Link href={`/categories/${category.name}/1`}>{category.name}</Link>
+						<Link href={`/categories/${category.name.toLowerCase()}/1`}>{category.name}</Link>
 					</li>
 				))}
 			</ul>

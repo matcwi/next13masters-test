@@ -3,7 +3,7 @@
 import { type Route } from "next";
 import { ActiveLink } from "@/ui/atoms/ActiveLink";
 
-export function Pagination({ totalPages }: { totalPages: number }) {
+export function Pagination({ totalPages, linkTo }: { totalPages: number; linkTo: string }) {
 	const pageNumbers = Array.from({ length: totalPages }, (_, index) => index + 1);
 
 	return (
@@ -13,7 +13,7 @@ export function Pagination({ totalPages }: { totalPages: number }) {
 					className=""
 					key={pageNumber}
 					aria-label={`pagination - ${pageNumber}`}
-					href={`/products/${pageNumber}` as Route}
+					href={`/${linkTo}/${pageNumber}` as Route}
 					activeClassName="active"
 					exact
 				>

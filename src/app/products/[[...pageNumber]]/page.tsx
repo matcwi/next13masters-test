@@ -25,7 +25,7 @@ export default async function ProductsPage({
 	return (
 		<div>
 			<ProductList products={products.products.data} />
-			<Pagination totalPages={products.products.meta.total / 4} />
+			<Pagination totalPages={products.products.meta.total / 4} linkTo="products" />
 		</div>
 	);
 }

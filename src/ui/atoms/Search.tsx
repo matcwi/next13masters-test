@@ -21,6 +21,7 @@ export function Search() {
 
 	return (
 		<input
+			role="searchbox"
 			onChange={handleSearchValueChange}
 			value={searchValue}
 			placeholder="Search"
