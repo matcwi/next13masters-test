@@ -5,7 +5,7 @@ import { ProductItem } from "@/ui/molecules/ProductItem";
 export const generateStaticParams = async () => {
 	const products = await getProductsList();
 
-	return products.data
+	return products.products.data
 		.map((product) => ({
 			productId: product.id,
 		}))

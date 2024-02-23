@@ -4,6 +4,7 @@ import {
 	ProductGetByIdDocument,
 	ProductsGetByCategorySlugDocument,
 	ProductsGetListDocument,
+	SuggestedProductsGetListDocument,
 } from "@/gql/graphql";
 
 type ProductResponseItem = {
@@ -20,8 +21,20 @@ type ProductResponseItem = {
 	longDescription: string;
 };
 
-export const getProductsList = async (_offset = 0) => {
-	const gqlResponse = await executeGraphql({ query: ProductsGetListDocument });
+export const getProductsList = async (take: number = 10, skip: number = 0) => {
+	const gqlResponse = await executeGraphql({
+		query: ProductsGetListDocument,
+		variables: {
+			take,
+			skip,
+		},
+	});
+
+	return gqlResponse;
+};
+
+export const getSuggestedProductsList = async () => {
+	const gqlResponse = await executeGraphql({ query: SuggestedProductsGetListDocument });
 
 	return gqlResponse.products;
 };

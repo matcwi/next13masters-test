@@ -1,11 +1,17 @@
-import { getProductsList } from "@/api/products";
-import { ProductList } from "@/ui/organisms/ProductList";
-
-const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
+import { getSuggestedProductsList } from "@/api/products";
+import { ProductListItem } from "@/ui/molecules/ProductListItem";
 
 export const SuggestedProductsList = async () => {
-	const products = await getProductsList();
-	await sleep(5000);
+	const products = await getSuggestedProductsList();
 
-	return <ProductList products={products.data.slice(-4)} />;
+	return (
+		<ul
+			data-testid="related-products"
+			className="grid grid-cols-1 gap-8 sm:grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
+		>
+			{products.data.map((product) => (
+				<ProductListItem key={product.id} product={product} />
+			))}
+		</ul>
+	);
 };

@@ -6,7 +6,8 @@ export default async function CategoryPage({
 }: {
 	params: { slug: string; pageNumber: string };
 }) {
-	const products = await getProductsByCategorySlug(params.slug);
+	const categoryName = decodeURIComponent(params.slug);
+	const products = await getProductsByCategorySlug(categoryName);
 
 	return <ProductList products={products} />;
 }
