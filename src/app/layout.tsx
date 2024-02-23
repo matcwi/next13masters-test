@@ -44,9 +44,9 @@ export default function RootLayout({
 									exact={false}
 									className={linkClassName}
 									activeClassName="active"
-									href={"/categories"}
+									href={"/collections"}
 								>
-									Categories
+									Collections
 								</ActiveLink>
 							</li>
 							<li>
@@ -54,9 +54,9 @@ export default function RootLayout({
 									exact={false}
 									className={linkClassName}
 									activeClassName="active"
-									href={"/collections"}
+									href={"/categories"}
 								>
-									Collections
+									Categories
 								</ActiveLink>
 							</li>
 						</ul>
