@@ -3,5 +3,6 @@ query ProductsGetByCategorySlug($slug: String!) {
 		products {
 			...ProductListItem
 		}
+		name
 	}
 }

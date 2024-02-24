@@ -46,12 +46,12 @@ export const getProductsByCategorySlug = async (slug: string) => {
 		variables: { slug: slug },
 	});
 
-	const products = categories.category?.products;
+	const category = categories.category;
 
-	if (!products) {
+	if (!category) {
 		throw notFound();
 	}
-	return products;
+	return category;
 };
 
 export const getProductById = async (id: ProductResponseItem["id"]) => {

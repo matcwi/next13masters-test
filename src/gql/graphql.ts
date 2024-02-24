@@ -303,7 +303,7 @@ export type ProductsGetByCategorySlugQueryVariables = Exact<{
 }>;
 
 
-export type ProductsGetByCategorySlugQuery = { category?: { products: Array<{ id: string, name: string, description: string, price: number, images: Array<{ url: string, alt: string }>, categories: Array<{ name: string }> }> } | null };
+export type ProductsGetByCategorySlugQuery = { category?: { name: string, products: Array<{ id: string, name: string, description: string, price: number, images: Array<{ url: string, alt: string }>, categories: Array<{ name: string }> }> } | null };
 
 export type ProductsGetBySearchQueryVariables = Exact<{
   input: Scalars['String']['input'];
@@ -433,6 +433,7 @@ export const ProductsGetByCategorySlugDocument = new TypedDocumentString(`
     products {
       ...ProductListItem
     }
+    name
   }
 }
     fragment ProductListItem on Product {

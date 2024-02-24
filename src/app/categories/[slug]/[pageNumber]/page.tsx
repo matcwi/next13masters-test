@@ -9,7 +9,8 @@ export default async function CategoryPage({
 }) {
 	const take = 2;
 	const categoryName = decodeURIComponent(params.slug);
-	const products = await getProductsByCategorySlug(categoryName);
+	const category = await getProductsByCategorySlug(categoryName);
+	const products = category.products;
 
 	const totalPages = products.length / take;
 	const slicedProducts = products.slice(
@@ -19,7 +20,7 @@ export default async function CategoryPage({
 
 	return (
 		<>
-			<h1 className="text-bold">{categoryName}</h1>
+			<h1 className="text-bold">{category.name}</h1>
 			<ProductList products={slicedProducts} />
 			<Pagination totalPages={totalPages} linkTo={`categories/${params.slug}`} />
 		</>
