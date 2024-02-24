@@ -12,7 +12,7 @@ export default async function CollectionPage({ params }: { params: { collectionN
 
 	return (
 		<section>
-			<h1>{collection.name}</h1>
+			<h1 className="text-bold">{collection.name}</h1>
 			<div>
 				<ProductList products={collection.products} />
 			</div>

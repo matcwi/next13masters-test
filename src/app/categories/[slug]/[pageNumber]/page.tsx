@@ -19,6 +19,7 @@ export default async function CategoryPage({
 
 	return (
 		<>
+			<h1 className="text-bold">{categoryName}</h1>
 			<ProductList products={slicedProducts} />
 			<Pagination totalPages={totalPages} linkTo={`categories/${params.slug}`} />
 		</>

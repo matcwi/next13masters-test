@@ -32,7 +32,7 @@ export const Navigation = async () => {
 							exact={false}
 							className={linkClassName}
 							activeClassName="active"
-							href={"/collections"}
+							href={"/collections/"}
 						>
 							Collections
 						</ActiveLink>
