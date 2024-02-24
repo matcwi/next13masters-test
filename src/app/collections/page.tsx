@@ -1,20 +1,5 @@
-import Link from "next/link";
-import { getCollectionsList } from "@/api/collections";
+import { CollectionsList } from "@/ui/organisms/CollectionsList";
 
-export default async function CollectionsListPage() {
-	const collections = await getCollectionsList();
-	return (
-		<section>
-			<h1>Collections</h1>
-			<ul>
-				{collections.map((collection) => (
-					<li key={collection.name}>
-						<Link href={`/collections/${encodeURIComponent(collection.name)}`}>
-							{collection.name}
-						</Link>
-					</li>
-				))}
-			</ul>
-		</section>
-	);
+export default function CollectionsPage() {
+	return <CollectionsList />;
 }

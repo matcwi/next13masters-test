@@ -2,6 +2,7 @@ query CollectionsGetList {
 	collections(take: 10) {
 		data {
 			name
+			slug
 		}
 	}
 }
