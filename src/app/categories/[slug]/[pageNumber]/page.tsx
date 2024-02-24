@@ -2,6 +2,15 @@ import { getProductsByCategorySlug } from "@/api/products";
 import { Pagination } from "@/ui/molecules/Pagination";
 import { ProductList } from "@/ui/organisms/ProductList";
 
+export const generateMetadata = async ({ params }: { params: { slug: string } }) => {
+	const categorySlug = decodeURIComponent(params.slug);
+	const category = await getProductsByCategorySlug(categorySlug);
+
+	return {
+		title: category.name,
+	};
+};
+
 export default async function CategoryPage({
 	params,
 }: {
