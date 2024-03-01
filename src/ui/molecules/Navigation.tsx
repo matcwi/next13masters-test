@@ -1,12 +1,19 @@
 import clsx from "clsx";
+import { cookies } from "next/headers";
+import Link from "next/link";
 import { getCategoriesList } from "@/api/categories";
 import { ActiveLink } from "@/ui/atoms/ActiveLink";
 import { Search } from "@/ui/atoms/Search";
+import { getCart } from "@/api/cart";
 
 const linkClassName = clsx(`text-blue-400 hover:text-blue-600`);
 
 export const Navigation = async () => {
 	const categories = await getCategoriesList();
+
+	const cartId = cookies().get("cartId")?.value;
+	const cart = cartId ? await getCart(cartId) : null;
+	const count = cart?.items.reduce((acc, item) => acc + item.quantity, 0) || 0;
 
 	return (
 		<nav>
@@ -51,6 +58,9 @@ export const Navigation = async () => {
 						</li>
 					))}
 				</ul>
+				<div>
+					<Link href={"/cart"}>Cart: {count}</Link>
+				</div>
 				<div>
 					<Search />
 				</div>
