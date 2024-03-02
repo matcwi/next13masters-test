@@ -20,7 +20,8 @@ export function ActiveLink<T extends string>({
 	exact: boolean;
 }) {
 	const pathname = usePathname();
-	const isActive = exact ? pathname === href : pathname.startsWith(href as string);
+	const hrefWithoutQueryParams = (href as string).slice(0, (href as string).indexOf("?"));
+	const isActive = exact ? pathname === href : pathname.startsWith(hrefWithoutQueryParams);
 
 	return (
 		<Link

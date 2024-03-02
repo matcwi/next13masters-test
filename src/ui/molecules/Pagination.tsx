@@ -23,7 +23,7 @@ export function Pagination({
 					aria-label={`pagination - ${pageNumber}`}
 					href={`/${linkTo}/${pageNumber}${queryParams ? `?${queryParams}` : ""}` as Route}
 					activeClassName="active"
-					exact
+					exact={false}
 				>
 					{pageNumber}
 				</ActiveLink>

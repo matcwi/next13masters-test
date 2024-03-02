@@ -18,12 +18,10 @@ export const SortBy = () => {
 
 	const handleChange = async (e: ChangeEvent<HTMLSelectElement>) => {
 		setSortBy(e.target.value);
-		if (e.target.value === "price-asc") {
-			router.push(`/products/1?sortBy=price-asc`);
-		} else if (e.target.value === "price-desc") {
-			router.push(`/products/1?sortBy=price-desc`);
-		} else {
+		if (e.target.value === "no-sort") {
 			router.push(`/products/1`);
+		} else {
+			router.push(`/products/1?sortBy=${e.target.value}`);
 		}
 	};
 
@@ -33,6 +31,10 @@ export const SortBy = () => {
 				od najtanszych
 			</option>
 			<option value={"price-desc"}>od najdrozszych</option>
+			<option data-testid="sort-by-rating" value={"rat-asc"}>
+				od najgorszych
+			</option>
+			<option value={"rat-desc"}>od najlepszych</option>
 			<option value={"no-sort"}>brak</option>
 		</select>
 	);

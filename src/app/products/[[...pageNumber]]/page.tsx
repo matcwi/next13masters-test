@@ -18,13 +18,14 @@ export default async function ProductsPage({
 
 	const order = () => {
 		if (!searchParams.sortBy || searchParams.sortBy === "no-sort") return undefined;
-		if (searchParams.sortBy === "price-asc") return "ASC";
+		if (searchParams.sortBy.includes("-asc")) return "ASC";
 		else return "DESC";
 	};
 
 	const orderBy = () => {
 		if (!searchParams.sortBy || searchParams.sortBy === "no-sort") return undefined;
 		if (searchParams.sortBy.startsWith("price")) return "PRICE";
+		if (searchParams.sortBy.startsWith("rat")) return "RATING";
 	};
 
 	const products = await getProductsList(4, offset, order(), orderBy());
