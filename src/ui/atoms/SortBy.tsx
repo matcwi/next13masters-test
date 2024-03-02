@@ -32,9 +32,7 @@ export const SortBy = () => {
 			<option data-testid="sort-by-price" value={"price-asc"}>
 				od najtanszych
 			</option>
-			<option data-testid="sort-by-price" value={"price-desc"}>
-				od najdrozszych
-			</option>
+			<option value={"price-desc"}>od najdrozszych</option>
 			<option value={"no-sort"}>brak</option>
 		</select>
 	);
