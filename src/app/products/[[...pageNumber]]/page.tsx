@@ -3,15 +3,6 @@ import { Pagination } from "@/ui/molecules/Pagination";
 
 import { ProductList } from "@/ui/organisms/ProductList";
 
-export async function generateStaticParams() {
-	const products = await getProductsList(10, 0);
-	const totalPages = Math.ceil(products.products.data.length / 4);
-	const staticPages = Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => ({
-		params: { page: [String(page)] },
-	}));
-	return staticPages;
-}
-
 export default async function ProductsPage({
 	params,
 }: {
