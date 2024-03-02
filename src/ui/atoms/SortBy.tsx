@@ -1,6 +1,5 @@
 "use client";
 
-import { revalidatePath } from "next/cache";
 import { useRouter, useSearchParams } from "next/navigation";
 import { type ChangeEvent, useState } from "react";
 
@@ -26,7 +25,6 @@ export const SortBy = () => {
 		} else {
 			router.push(`/products/1`);
 		}
-		revalidatePath("/products");
 	};
 
 	return (

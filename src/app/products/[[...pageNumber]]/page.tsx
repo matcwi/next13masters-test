@@ -13,7 +13,8 @@ export default async function ProductsPage({
 	};
 	searchParams: { sortBy: string };
 }) {
-	const offset = params.pageNumber ? Number(params.pageNumber[0]) * 4 : 0;
+	const offset =
+		params.pageNumber && params.pageNumber[0] !== "1" ? Number(params.pageNumber[0]) * 4 : 0;
 
 	const order = () => {
 		if (!searchParams.sortBy || searchParams.sortBy === "no-sort") return undefined;
