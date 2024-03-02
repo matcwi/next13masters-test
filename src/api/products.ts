@@ -28,8 +28,8 @@ type ProductResponseItem = {
 export const getProductsList = async (
 	take: number = 10,
 	skip: number = 0,
-	order: InputMaybe<SortDirection> | undefined,
-	orderBy: InputMaybe<ProductSortBy> | undefined,
+	order: InputMaybe<SortDirection> | undefined = undefined,
+	orderBy: InputMaybe<ProductSortBy> | undefined = undefined,
 ) => {
 	const gqlResponse = await executeGraphql({
 		query: ProductsGetListDocument,
