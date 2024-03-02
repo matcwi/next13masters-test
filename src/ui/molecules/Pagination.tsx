@@ -10,7 +10,7 @@ export function Pagination({
 }: {
 	totalPages: number;
 	linkTo: string;
-	queryParams: string;
+	queryParams?: string;
 }) {
 	const pageNumbers = Array.from({ length: totalPages }, (_, index) => index + 1);
 
