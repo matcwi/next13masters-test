@@ -360,6 +360,8 @@ export type ProductsGetCountFragment = { meta: { count: number, total: number } 
 export type ProductsGetListQueryVariables = Exact<{
   take: Scalars['Int']['input'];
   skip: Scalars['Int']['input'];
+  order?: InputMaybe<SortDirection>;
+  orderBy?: InputMaybe<ProductSortBy>;
 }>;
 
 
@@ -694,8 +696,8 @@ fragment ProductsGetCount on ProductList {
   }
 }`) as unknown as TypedDocumentString<ProductsGetBySearchQuery, ProductsGetBySearchQueryVariables>;
 export const ProductsGetListDocument = new TypedDocumentString(`
-    query ProductsGetList($take: Int!, $skip: Int!) {
-  products(take: $take, skip: $skip) {
+    query ProductsGetList($take: Int!, $skip: Int!, $order: SortDirection, $orderBy: ProductSortBy) {
+  products(take: $take, skip: $skip, order: $order, orderBy: $orderBy) {
     data {
       ...ProductListItem
     }

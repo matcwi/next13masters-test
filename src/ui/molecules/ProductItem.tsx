@@ -23,7 +23,7 @@ export const ProductItem = ({ product }: ProductListItemProps) => {
 					<p>{description}</p>
 					<p className="text-sm font-medium text-gray-900">
 						<span className="sr-only">Cena:</span>
-						{formatMoney(price / 100)}
+						<span data-testid="product-price">{formatMoney(price / 100)}</span>
 					</p>
 				</div>
 			</div>

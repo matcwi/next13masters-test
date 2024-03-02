@@ -1,11 +1,14 @@
 import { notFound } from "next/navigation";
 import { executeGraphql } from "@/api/graphql/lib";
 import {
+	type InputMaybe,
 	ProductGetByIdDocument,
 	ProductsGetByCategorySlugDocument,
 	ProductsGetBySearchDocument,
 	ProductsGetListDocument,
 	SuggestedProductsGetListDocument,
+	type SortDirection,
+	type ProductSortBy,
 } from "@/gql/graphql";
 
 type ProductResponseItem = {
@@ -22,12 +25,19 @@ type ProductResponseItem = {
 	longDescription: string;
 };
 
-export const getProductsList = async (take: number = 10, skip: number = 0) => {
+export const getProductsList = async (
+	take: number = 10,
+	skip: number = 0,
+	order: InputMaybe<SortDirection> | undefined,
+	orderBy: InputMaybe<ProductSortBy> | undefined,
+) => {
 	const gqlResponse = await executeGraphql({
 		query: ProductsGetListDocument,
 		variables: {
 			take,
 			skip,
+			order,
+			orderBy,
 		},
 	});
 
