@@ -1,5 +1,13 @@
 query ProductGetById($id: ID!) {
 	product(id: $id) {
 		...ProductListItem
+		reviews {
+			author
+			description
+			id
+			rating
+			title
+			email
+		}
 	}
 }

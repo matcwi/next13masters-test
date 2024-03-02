@@ -1,8 +1,10 @@
+import { Suspense } from "react";
 import { getProductById, getProductsList } from "@/api/products";
 
 import { ProductItem } from "@/ui/molecules/ProductItem";
 import { SuggestedProductsList } from "@/ui/organisms/SuggestedProducts";
 import { addProductToCartAction } from "@/api/actions";
+import { ReviewsWidget } from "@/ui/atoms/ReviewsBox";
 
 export const generateStaticParams = async () => {
 	const products = await getProductsList();
@@ -39,11 +41,18 @@ export default async function SingleProductPage({ params }: { params: { productI
 		<>
 			<ProductItem product={product} />
 			<form action={addToCartAction}>
-				<button type="submit" className="rounded-sm bg-slate-400 p-4">
+				<button
+					data-testid="add-to-cart-button"
+					type="submit"
+					className="rounded-sm bg-slate-400 p-4"
+				>
 					Add to cart
 				</button>
 			</form>
-			<SuggestedProductsList />
+			<ReviewsWidget reviews={product.reviews} productId={params.productId} />
+			<Suspense>
+				<SuggestedProductsList />
+			</Suspense>
 		</>
 	);
 }
