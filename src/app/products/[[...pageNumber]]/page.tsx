@@ -1,5 +1,5 @@
 import { getProductsList } from "@/api/products";
-import { SortBy } from "@/ui/atoms/SortBy";
+
 import { Pagination } from "@/ui/molecules/Pagination";
 
 import { ProductList } from "@/ui/organisms/ProductList";
@@ -39,7 +39,7 @@ export default async function ProductsPage({
 
 	return (
 		<div>
-			<SortBy />
+			{/* <SortBy /> */}
 			<ProductList products={products.products.data} />
 			<Pagination
 				totalPages={products.products.meta.total / 4}
