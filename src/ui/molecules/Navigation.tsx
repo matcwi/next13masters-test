@@ -17,53 +17,57 @@ export const Navigation = async () => {
 	const count = cart?.items.reduce((acc, item) => acc + item.quantity, 0) || 0;
 
 	return (
-		<nav>
-			<div className="flex justify-between p-12">
-				<ul className="flex justify-center space-x-4">
-					<li>
-						<ActiveLink exact className={linkClassName} activeClassName="active" href={"/"}>
-							Home
-						</ActiveLink>
-					</li>
-					<li>
-						<ActiveLink
-							exact={false}
-							className={linkClassName}
-							activeClassName="active"
-							href={"/products"}
-						>
-							All
-						</ActiveLink>
-					</li>
-					<li>
-						<ActiveLink
-							exact={false}
-							className={linkClassName}
-							activeClassName="active"
-							href={"/collections/"}
-						>
-							Collections
-						</ActiveLink>
-					</li>
-
-					{categories.map((category) => (
-						<li key={category.name}>
+		<>
+			<nav>
+				<div className="flex justify-between p-12">
+					<ul className="flex justify-center space-x-4">
+						<li>
+							<ActiveLink exact className={linkClassName} activeClassName="active" href={"/"}>
+								Home
+							</ActiveLink>
+						</li>
+						<li>
 							<ActiveLink
 								exact={false}
 								className={linkClassName}
 								activeClassName="active"
-								href={`/categories/${category.name.toLowerCase()}`}
+								href={"/products"}
 							>
-								{category.name}
+								All
 							</ActiveLink>
 						</li>
-					))}
-				</ul>
+						<li>
+							<ActiveLink
+								exact={false}
+								className={linkClassName}
+								activeClassName="active"
+								href={"/collections/"}
+							>
+								Collections
+							</ActiveLink>
+						</li>
+
+						{categories.map((category) => (
+							<li key={category.name}>
+								<ActiveLink
+									exact={false}
+									className={linkClassName}
+									activeClassName="active"
+									href={`/categories/${category.name.toLowerCase()}`}
+								>
+									{category.name}
+								</ActiveLink>
+							</li>
+						))}
+					</ul>
+				</div>
+			</nav>
+			<div className="flex gap-12 p-12">
 				<CartCount count={count} />
 				<div>
 					<Search />
 				</div>
 			</div>
-		</nav>
+		</>
 	);
 };
