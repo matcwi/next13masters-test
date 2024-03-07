@@ -16,7 +16,7 @@ export const ReviewsWidget = ({
 			return newReviews;
 		},
 	);
-	console.log(optimisticReviews);
+
 	return (
 		<div className="flex flex-row gap-8">
 			<div className="flex-1">

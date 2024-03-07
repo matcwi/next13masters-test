@@ -1,6 +1,7 @@
 import clsx from "clsx";
 
 import { cookies } from "next/headers";
+import { SignedIn, UserButton, SignedOut, SignInButton } from "@clerk/nextjs";
 import { getCategoriesList } from "@/api/categories";
 import { ActiveLink } from "@/ui/atoms/ActiveLink";
 import { Search } from "@/ui/atoms/Search";
@@ -62,6 +63,12 @@ export const Navigation = async () => {
 					</ul>
 				</div>
 			</nav>
+			<SignedIn>
+				<UserButton />
+			</SignedIn>
+			<SignedOut>
+				<SignInButton />
+			</SignedOut>
 			<div className="flex gap-12 p-12">
 				<CartCount count={count} />
 				<div>

@@ -31,7 +31,6 @@ export const getProductsList = async (
 	order: InputMaybe<SortDirection> | undefined = undefined,
 	orderBy: InputMaybe<ProductSortBy> | undefined = undefined,
 ) => {
-	console.log(take, skip, order, orderBy);
 	const gqlResponse = await executeGraphql({
 		query: ProductsGetListDocument,
 		variables: {
